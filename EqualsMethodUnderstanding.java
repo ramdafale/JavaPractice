@@ -4,7 +4,10 @@ class MainClass {
 
         Person objectOne = new Person(1, "Ram");
         Person objectTwo = new Person(1, "Shyam");
+        
         Test otherClassObject = new Test();
+        
+        // copy and paste my lines of code from article into this class to test equals method.
         boolean value = objectOne.equals(otherClassObject);
         System.out.println(value);
     }
