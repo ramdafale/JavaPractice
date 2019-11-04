@@ -1,0 +1,44 @@
+package com.practice;
+
+abstract class Human
+{
+        int numberOfEyes=2;
+        int a = Integer.parseInt("123");
+        String nameOfSpacies="asd";
+        public Human(){}
+   public Human(int numberOfEyes,String nameOfSpacies)
+    {
+        System.out.println("inside Human const");
+        this.numberOfEyes = numberOfEyes;
+        this.nameOfSpacies = nameOfSpacies;
+    }
+}
+
+  class Male extends  Human {
+     int adharNumber;
+       String name;
+    public Male(int numberOfEyes, String nameOfSpecies, int adharNumber, String name) {
+        super(numberOfEyes,nameOfSpecies);
+        this.adharNumber = adharNumber;
+        this.name = name;
+    }
+  }
+
+class Female extends Human {
+     int adharNumber;
+     String name;
+    public Female(int numberOfEyes, String nameOfSpecies, int adharNumber, String name) {
+        super(numberOfEyes,nameOfSpecies);
+        this.adharNumber = adharNumber;
+        this.name = name;
+    }
+}
+
+class MainClass {
+    public static void main(String args[]) {
+        Male shetty = new Male(2,"HomoSapien",1234,"R shetty");
+        Female tejal = new Female(2,"HomoSapien",1234,"T Kamble");
+        System.out.println(+shetty.numberOfEyes+"->"+shetty.nameOfSpacies +"->"+shetty.adharNumber+"->"+shetty.name);
+        System.out.println(+tejal.numberOfEyes+"->"+tejal.nameOfSpacies +"->"+tejal.adharNumber+"->"+tejal.name);
+    }
+}
