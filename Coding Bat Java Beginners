@@ -77,3 +77,40 @@ public static void main(String  args[]) {
                 System.out.print(" " + res[i]);
 }
 }
+--------------------------------------------------------------------------------------------
+
+Problem :  program to remove duplicate from sorted Array Using Temporary array
+
+
+Solution : 
+
+class sortedArrayUsingTemporaryArrayClass
+{
+
+       static void sortedArrayUsingTemporaryArray(int[] arr1, int res[],
+                               int n) {
+           int j = 0;
+          for( int i=0;i<n-1;i++) {
+               if (arr1[i] != arr1[i+1]) {
+                   res[j] = arr1[i];
+                   j++;
+               }
+                res[j]=arr1[n-1];
+               }
+           }
+
+public static void main(String  args[]) {
+
+        int arr1[] = {1,2,2,3,4,4,5,7};
+
+        int n = arr1.length;
+
+        // new sorted array
+        int res[] = new int[n];
+    sortedArrayUsingTemporaryArray(arr1, res,n);
+
+        System.out.print( "Sorted merged list :");
+       for (int i = 0; i < n ; i++)
+                System.out.print(" " + res[i]);
+}
+}
