@@ -1,0 +1,100 @@
+Question 1:
+
+ Program has created list of contacts. Each contact consists of information about name, emailid and contatcno. Write required constructors in class Contact. 
+Program processes list of contacts to generate information in the form of map which contains the domain of emailid and no of contacts belonging to that domain with the help of getReport() method
+Hint : Use TreeMap implmentation of Map so that map is alphabetically sorted on domains.
+Please note :
+1. Program does not need any input from command line argument.
+2. Write only missing constructors and methods.
+
+Expected output:
+gmail.com : 2
+yahoo.com : 1
+
+---------------------------------------------------------------------------------------------------------------------
+
+import java.util.*;
+import java.util.Map.Entry;
+
+class Contact
+{
+    String name;
+    String emailid;
+    String contactno;
+
+    public Contact(String name, String emailid, String contactno) {
+        this.name=name;
+        this.emailid=emailid;
+        this.contactno=contactno;
+    }
+
+    /* Write required constrcutors here */
+
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getEmailid() {
+        return emailid;
+    }
+    public void setEmailid(String emailid) {
+        this.emailid = emailid;
+    }
+    public String getContactno() {
+        return contactno;
+    }
+    public void setContactno(String contactno) {
+        this.contactno = contactno;
+    }
+}
+
+public class Program {
+
+    public static void main(String[] args) {
+        List<Contact> allContacts = new ArrayList<Contact>();
+        allContacts.add(new Contact("Amit","amit@gmail.com","7654689076"));
+        allContacts.add(new Contact("Vivek","vivak@gmail.com","9854368435"));
+        allContacts.add(new Contact("Chetana","chetana@yahoo.com","8907656765"));
+
+        Map<String,Integer> map = getReport((ArrayList<Contact>) allContacts);
+
+        Set<Entry<String,Integer>> set = map.entrySet();
+        for(Entry<String,Integer> e : set)
+            System.out.println(e.getKey()+" : "+e.getValue());
+    }
+
+    public static Map<String,Integer>  getReport(ArrayList<Contact> allContacts) {
+        Map<String,Integer>  info = new HashMap<String, Integer>();
+        int k=0;
+        int j=0;
+        List<String> names = new ArrayList<String>();
+        for (int i=0;i<allContacts.size();i++) {
+            if (allContacts.get(i).emailid.contains("gmail.com") ) {
+                k++;
+                info.put("gmail.com",k);
+            }
+            if (allContacts.get(i).emailid.contains("yahoo.com"))
+                j++;
+            info.put("yahoo.com", j);
+        }
+        return info;
+    }
+}
+
+
+-----------------------------------------------------
+
+Question 2: 
+ Program has created list of contacts. Each contact consists of information about name, emailid and contatcno. Write required constructors in class Contact. 
+Program processes list of contacts to generate information in the form of map which contains the domain of emailid and no of contacts belonging to that domain with the help of getReport() method
+Hint : Use TreeMap implmentation of Map so that map is alphabetically sorted on domains.
+Please note :
+1. Program does not need any input from command line argument.
+2. Write only missing constructors and methods.
+
+Program to to get below output:
+Expected output :
+gmail.com : [Amit, Vivek]
+yahoo.com : [Chetana]
